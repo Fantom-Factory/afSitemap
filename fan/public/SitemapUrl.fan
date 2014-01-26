@@ -1,5 +1,6 @@
 using xml
 
+** The main Sitemap URL entity.
 const class SitemapUrl {
 	
 	** URL of the page. This URL must begin with the protocol (such as 'http').
