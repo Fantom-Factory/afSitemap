@@ -3,7 +3,7 @@ using afIoc
 @NoDoc
 const mixin FromServices : SitemapSource { }
 
-const class FromServicesImpl : FromServices {
+internal const class FromServicesImpl : FromServices {
 	@Inject private const ServiceStats	serviceStats
 	@Inject private const Registry		registry
 	

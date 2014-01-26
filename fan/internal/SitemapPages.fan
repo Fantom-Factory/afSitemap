@@ -7,15 +7,19 @@ using xml::XDoc
 using xml::XElem
 using xml::XText
 
-const class SitemapPage {	
+internal const mixin SitemapPages {
+	abstract Text get()
+}
+
+internal const class SitemapPagesImpl : SitemapPages {
 	private const SitemapSource[] sitemapSources
 	
-	new make(SitemapSource[] sitemapSources,|This| in) {
+	internal new make(SitemapSource[] sitemapSources,|This| in) {
 		this.sitemapSources = sitemapSources
 		in(this)
 	} 
 	
-	Text get() {
+	override Text get() {
 		doc		:= XDoc()
 		
 		urlset	:=	XElem("urlset")
