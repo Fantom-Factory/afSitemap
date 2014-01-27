@@ -1,8 +1,7 @@
 
 For 1.0.0
 =========
-Add config to disable pillow page gathering / scanning
-Add config to disable auto service detection 
+
 
 For Future
 ==========

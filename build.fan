@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "(Internal) A library for creating XML sitemaps for your Bed App"
-		version = Version("0.0.1")
+		version = Version("0.0.3")
 
-		meta	= [
+		meta = [
 			"org.name"		: "Alien-Factory",
 			"org.uri"		: "http://www.alienfactory.co.uk/",
-			"vcs.uri"		: "https://bitbucket.org/Alien-Factory/afsitemap",
+			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afsitemap",
 			"proj.name"		: "Sitemap",
-			"license.name"	: "BSD 2-Clause License",	
+			"license.name"	: "The MIT License",
 			"repo.private"	: "true",
 
 			"afIoc.module"	: "afSitemap::SitemapModule"
@@ -31,11 +31,29 @@ class Build : BuildPod {
 			"afButter 0+",
 			"afBounce 0+"
 		]
-		
+
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
 		resDirs = [`doc/`]
 
 		docApi = true
 		docSrc = true
+	}
+
+	@Target { help = "Compile to pod file and associated natives" }
+	override Void compile() {
+		// exclude test code when building the pod
+		srcDirs = srcDirs.exclude { it.toStr.startsWith("test/") }
+		resDirs = resDirs.exclude { it.toStr.startsWith("res/test/") }
+		
+		super.compile
+		
+		// copy src to %FAN_HOME% for F4 debugging
+		log.indent
+		destDir := Env.cur.homeDir.plus(`src/${podName}/`)
+		destDir.delete
+		destDir.create		
+		`fan/`.toFile.copyInto(destDir)		
+		log.info("Copied `fan/` to ${destDir.normalize}")
+		log.unindent
 	}
 }

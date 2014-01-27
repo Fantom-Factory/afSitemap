@@ -23,8 +23,3 @@ To use in a [Fantom](http://fantom.org/) project, add a dependency to `build.fan
 
 Full API & fandocs are available on the [status302 repository](http://repo.status302.com/doc/afSitemap/#overview).
 
-
-
-## Quick Start
-
-    Example here
