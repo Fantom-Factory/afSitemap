@@ -7,11 +7,12 @@ using xml::XDoc
 using xml::XElem
 using xml::XText
 
-internal const mixin SitemapPages {
-	abstract Text get()
+** (Service) Renders the '/sitemap.xml' page as detailed by [www.sitemaps.org]`http://www.sitemaps.org/`.
+const mixin SitemapPage {
+	abstract Text render()
 }
 
-internal const class SitemapPagesImpl : SitemapPages {
+internal const class SitemapPageImpl : SitemapPage {
 	private const SitemapSource[] sitemapSources
 	
 	internal new make(SitemapSource[] sitemapSources,|This| in) {
@@ -19,7 +20,7 @@ internal const class SitemapPagesImpl : SitemapPages {
 		in(this)
 	} 
 	
-	override Text get() {
+	override Text render() {
 		doc		:= XDoc()
 		
 		urlset	:=	XElem("urlset")

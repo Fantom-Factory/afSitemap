@@ -4,16 +4,24 @@ using xml
 const class SitemapUrl {
 	
 	** URL of the page. This URL must begin with the protocol (such as 'http').
+	** 
+	** @see `http://www.sitemaps.org/protocol.html#locdef`
 	const Uri			loc
 	
 	** The date of last modification of the file.
+	** 
+	** @see `http://www.sitemaps.org/protocol.html#lastmoddef`
 	const DateTime?		lastMod
 	
 	** How frequently the page is likely to change.
+	** 
+	** @see `http://www.sitemaps.org/protocol.html#changefreqdef`
 	const SitemapFreq?	changefreq
 	
 	** The priority of this URL relative to other URLs on your site. 
 	** Valid values range from '0.0' to '1.0'. 
+	** 
+	** @see `http://www.sitemaps.org/protocol.html#prioritydef`
 	const Float?		priority
 	
 	new make(Uri loc, |This|? in := null) {
@@ -53,7 +61,7 @@ const class SitemapUrl {
 ** Describes how frequently the page is likely to change. 
 ** Note that the value of this tag is considered a *hint* and not a command.
 ** 
-** See `http://www.sitemaps.org/protocol.html#changefreqdef`
+** @see `http://www.sitemaps.org/protocol.html#changefreqdef`
 enum class SitemapFreq {
 	
 	** Use to describe documents that change each time they are accessed

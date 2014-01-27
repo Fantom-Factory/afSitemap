@@ -3,7 +3,7 @@ Overview [#overview]
 *'Sitemap' is a support library that aids Alien-Factory in the development of libraries, frameworks and applications.
 Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
 
-'Sitemap' is a library for creating XML sitemaps for your [Bed App]`http://www.fantomfactory.org/pods/afBedSheet`.
+'Sitemap' is a library for creating [XML sitemaps]`http://www.sitemaps.org/` for your [Bed App]`http://www.fantomfactory.org/pods/afBedSheet`.
 
 
 
@@ -19,10 +19,41 @@ To use in a [Fantom]`http://fantom.org/` project, add a dependency to 'build.fan
 
 
 
-Quick Start [#quickStart]
-*************************
+Usage [#usage]
+**************
+The `SitemapUrl` object contains the data needed to render an individual [URL]`http://www.sitemaps.org/protocol.html` object.
+These are gathered by 'Sitemap' in serveral ways:
+
+
+
+Pillow Pages [#pillowPages]
+===========================
+URLs from [Pillow]`http://www.fantomfactory.org/pods/afPillow` pages are added automatically.
+The page location is generated using [BedSheet's]`http://www.fantomfactory.org/pods/afBedSheet` 'host' config value - so ensure this has been set!
+
+[Pillow]`http://www.fantomfactory.org/pods/afPillow` pages are ignored if they contain an '@InitRender' method.
+Such pages take additional URL parameters of which, obviously, 'Sitemap' can not determine valid values for.
+These pages should implement `SitemapSource` and return a list of valid [SitemapUrls]`SitemapUrl`.
+
+
+
+IoC Services [#services]
+========================
+The [IoC]`http://www.fantomfactory.org/pods/afIoc` service registry is scanned for services that implement `SitemapSource`.
+Any service that does is called upon to generate [SitemapUrls]`SitemapUrl`.
+
+
+
+IoC Contribution [#iocContribution]
+===================================
+You may also manually contribute `SitemapSource` objects to the `SitemapPage` service:
+
 pre>
-  Example here
+@Contribute { serviceType=SitemapPage# }
+internal static Void contributeSitemapPage(OrderedConfig config) {
+    url := SitemapUrl(`/wotever`) { ... }
+    config.add(SitemapSourceImpl(url))
+}
 <pre
 
 
