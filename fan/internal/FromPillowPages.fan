@@ -15,13 +15,17 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 	@Config { id="afBedSheet.host" }
 	@Inject private const Uri host
 
+	@Config { id="afSitemap.scanPillowPages" }
+	@Inject private const Bool enabled
+
 	new make(|This|in) { in(this) }
 	
 	override SitemapUrl[] sitemapUrls() {
 		sitemapUrls := SitemapUrl[,]
+		if (!enabled)
+			return sitemapUrls
 
 		pages.pageTypes.each |pageType| {
-			
 			if (pageType.fits(SitemapSource#)) {
 				sitemapSrc := (SitemapSource) pages[pageType]
 				sitemapUrls.addAll(sitemapSrc.sitemapUrls)

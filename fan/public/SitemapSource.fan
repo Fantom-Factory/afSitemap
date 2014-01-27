@@ -1,10 +1,11 @@
 
-** Services should implement to return sitemap URLs.
+** Implement to define a source of [Sitemap URLs]`SitemapUrl`. 
+** Pillow pages and services can implement this and be auto detected.
 const mixin SitemapSource {
 	abstract SitemapUrl[] sitemapUrls()
 }
 
-** A simple implementation of `SitemapSource`, use for contributions.
+** A simple implementation of `SitemapSource` to be uses in service contributions.
 const class SitemapSourceImpl : SitemapSource {
 	override const SitemapUrl[] sitemapUrls
 

@@ -26,7 +26,10 @@ class Build : BuildPod {
 			"afIocConfig 1.0.2+", 
 			"afBedSheet 1.3.0+",
 			"afEfanXtra 1.0.8+",
-			"afPillow 0+"
+			"afPillow 0+",
+			
+			"afButter 0+",
+			"afBounce 0+"
 		]
 		
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
