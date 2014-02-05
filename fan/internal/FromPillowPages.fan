@@ -9,8 +9,8 @@ const mixin FromPillowPages : SitemapSource { }
 internal const class FromPillowPagesImpl : FromPillowPages {
 	
 	@Inject private const Pages 				pages
-	@Inject private const ComponentMeta 		componentMeta
 	@Inject private const EfanTemplateFinders 	templateFinder
+	@Inject private const EfanXtra				efanXtra
 	
 	@Config { id="afBedSheet.host" }
 	@Inject private const Uri host
@@ -27,19 +27,18 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 
 		pages.pageTypes.each |pageType| {
 			if (pageType.fits(SitemapSource#)) {
-				sitemapSrc := (SitemapSource) pages[pageType]
+				sitemapSrc := (SitemapSource) efanXtra.component(pageType)
 				sitemapUrls.addAll(sitemapSrc.sitemapUrls)
 				return
 			}
 			
-			initMethod := componentMeta.findMethod(pageType, InitRender#) 
-			if (initMethod != null && initMethod.params.size > 0) {
-				// if the page take args, we don't know what they should be
+			pageMeta := pages.pageMeta(pageType, null)
+			if (!pageMeta.contextTypes.isEmpty)
+				// if the page takes args, we don't know what they should be
 				return
-			}
 			
 			// basic pillow page with no render args
-			clientUri	:= pages.clientUri(pageType)
+			clientUri	:= pageMeta.pageUri
 			template	:= templateFinder.findTemplate(pageType)
 			sitemapUrls.add(SitemapUrl(host + clientUri) {
 				it.lastMod = template.modified
