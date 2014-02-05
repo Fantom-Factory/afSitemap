@@ -60,6 +60,9 @@ internal static Void contributeSitemapPage(OrderedConfig config) {
 
 Release Notes [#releaseNotes]
 *****************************
+v0.0.4 [#v0.0.4]
+----------------
+ - Chg: Updated to [Pillow-0.0.10]`http://www.fantomfactory.org/pods/afPillow`
 
 v0.0.2 [#v0.0.2]
 ----------------
