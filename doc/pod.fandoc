@@ -3,7 +3,7 @@ Overview [#overview]
 *'Sitemap' is a support library that aids Alien-Factory in the development of libraries, frameworks and applications.
 Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
 
-'Sitemap' is a library for creating [XML sitemaps]`http://www.sitemaps.org/` for your [Bed App]`http://www.fantomfactory.org/pods/afBedSheet`.
+'Sitemap' is a library that creates an [XML sitemap]`http://www.sitemaps.org/` for your [Bed App]`http://www.fantomfactory.org/pods/afBedSheet`.
 
 
 
@@ -31,10 +31,11 @@ Pillow Pages [#pillowPages]
 URLs from [Pillow]`http://www.fantomfactory.org/pods/afPillow` pages are added automatically.
 The page location is generated using [BedSheet's]`http://www.fantomfactory.org/pods/afBedSheet` 'host' config value - so ensure this has been set!
 
-[Pillow]`http://www.fantomfactory.org/pods/afPillow` pages are ignored if they contain an '@InitRender' method.
+[Pillow]`http://www.fantomfactory.org/pods/afPillow` pages are ignored if they contain an '@InitRender' method or '@PageContext' fields.
 Such pages take additional URL parameters of which, obviously, 'Sitemap' can not determine valid values for.
 These pages should implement `SitemapSource` and return a list of valid [SitemapUrls]`SitemapUrl`.
 
+If you don't wish for a [Pillow]`http://www.fantomfactory.org/pods/afPillow` page to be included, let it implement `SitemapExempt`.
 
 
 IoC Services [#services]
@@ -60,6 +61,10 @@ internal static Void contributeSitemapPage(OrderedConfig config) {
 
 Release Notes [#releaseNotes]
 *****************************
+v0.0.6 [#v0.0.6]
+----------------
+ - New: Added 'SitemapExempt' mixin.
+
 v0.0.4 [#v0.0.4]
 ----------------
  - Chg: Updated to [Pillow-0.0.10]`http://www.fantomfactory.org/pods/afPillow`

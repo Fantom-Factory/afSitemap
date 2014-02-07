@@ -5,6 +5,14 @@ const mixin SitemapSource {
 	abstract SitemapUrl[] sitemapUrls()
 }
 
+** Place on Pillow pages to remove them from the Sitemap list.
+const mixin SitemapExempt : SitemapSource {
+	** Returns an empty list
+	override SitemapUrl[] sitemapUrls() {
+		SitemapUrl#.emptyList
+	}
+}
+
 ** A simple implementation of `SitemapSource` to be uses in service contributions.
 const class SitemapSourceImpl : SitemapSource {
 	override const SitemapUrl[] sitemapUrls
