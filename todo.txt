@@ -2,6 +2,8 @@
 For 1.0.0
 =========
 
+Add SitemapBlacklist to ignore regex uris
+Add 'enableRouting' for the sitemap.xml 
 
 For Future
 ==========

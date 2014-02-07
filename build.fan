@@ -5,7 +5,7 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "(Internal) A library for creating XML sitemaps for your Bed App"
-		version = Version("0.0.5")
+		version = Version("0.0.6")
 
 		meta = [
 			"org.name"		: "Alien-Factory",
@@ -14,7 +14,7 @@ class Build : BuildPod {
 			"proj.uri"		: "http://repo.status302.com/doc/afSitemap/#overview",
 			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afsitemap",
 			"license.name"	: "The MIT License",
-			"repo.private"	: "true",
+			"repo.private"	: "false",
 
 			"afIoc.module"	: "afSitemap::SitemapModule"
 		]
