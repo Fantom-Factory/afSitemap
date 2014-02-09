@@ -13,7 +13,7 @@ class Build : BuildPod {
 			"proj.name"		: "Sitemap",
 			"proj.uri"		: "http://repo.status302.com/doc/afSitemap/#overview",
 			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afsitemap",
-			"license.name"	: "The MIT License",
+			"license.name"	: "The MIT Licence",
 			"repo.private"	: "false",
 
 			"afIoc.module"	: "afSitemap::SitemapModule"
@@ -23,11 +23,11 @@ class Build : BuildPod {
 			"sys 1.0",
 			"xml 1.0",
 			
-			"afIoc 1.5.2+", 
+			"afIoc 1.5.4+", 
 			"afIocConfig 1.0.2+", 
 			"afBedSheet 1.3.2+",
-			"afEfanXtra 1.0.10+",
-			"afPillow 0.0.10+",
+			"afEfanXtra 1.0.12+",
+			"afPillow 1.0.2+",
 			
 			"afButter 0.0.4+",
 			"afBounce 0.0.6+"
