@@ -1,8 +1,5 @@
 using afBounce
-using afBedSheet::Route
-using afBedSheet::Routes
-using afBedSheet::Text
-using afBedSheet::HttpSession
+using afBedSheet
 using afIoc
 using afIocConfig
 using afPillow
@@ -13,32 +10,34 @@ class TestSitemap : Test {
 	
 	Void testSitemapGenerates() {
 		// given
-		server := BedServer(T_AppModule#).addModulesFromDependencies(PillowModule#.pod).startup
+		server := BedServer(T_AppModule#).startup
 		client := server.makeClient
 		
 		// when
 		res := client.get(`/sitemap.xml`)
 		
 		// then
-		verifyNotNull(client.selectCss("urlset url loc").find { it.text.writeToStr.contains("/iocService") })
-		verifyNotNull(client.selectCss("urlset url loc").find { it.text.writeToStr.contains("/standardPillowPage") })
-		verifyNotNull(client.selectCss("urlset url loc").find { it.text.writeToStr.contains("/pillowSource-1") })
-		verifyNotNull(client.selectCss("urlset url loc").find { it.text.writeToStr.contains("/pillowSource-2") })
-		verifyNull   (client.selectCss("urlset url loc").find { it.text.writeToStr.contains("/pillowDirPage") })
+		loc := Element("urlset url loc")
+		
+		verifyNotNull(loc.list.find { it.text.contains("/iocService"		) })
+		verifyNotNull(loc.list.find { it.text.contains("/standardPillowPage") })
+		verifyNotNull(loc.list.find { it.text.contains("/pillowSource-1"	) })
+		verifyNotNull(loc.list.find { it.text.contains("/pillowSource-2"	) })
+		verifyNull   (loc.list.find { it.text.contains("/pillowDirPage"		) })
 		
 		client.shutdown
 	}
 
 	Void testDisableScanning() {
 		// given
-		server := BedServer(T_AppModule#).addModulesFromDependencies(PillowModule#.pod).addModule(T_AppModuleOverride#) .startup
+		server := BedServer(T_AppModule#).addModule(T_AppModuleOverride#).startup
 		client := server.makeClient
 		
 		// when
 		res := client.get(`/sitemap.xml`)
 		
 		// then
-		verifyEq(client.selectCss("urlset url loc").size, 0)
+		Element("urlset url loc").verifySizeEq(0)
 		
 		client.shutdown
 	}

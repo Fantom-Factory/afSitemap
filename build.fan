@@ -5,7 +5,7 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "(Internal) A library for creating XML sitemaps for your Bed App"
-		version = Version("0.0.7")
+		version = Version("0.0.8")
 
 		meta = [
 			"org.name"		: "Alien-Factory",
@@ -14,7 +14,7 @@ class Build : BuildPod {
 			"proj.uri"		: "http://repo.status302.com/doc/afSitemap/#overview",
 			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afsitemap",
 			"license.name"	: "The MIT Licence",
-			"repo.private"	: "true",
+			"repo.private"	: "false",
 
 			"afIoc.module"	: "afSitemap::SitemapModule"
 		]
@@ -23,18 +23,19 @@ class Build : BuildPod {
 			"sys 1.0",
 			"xml 1.0",
 			
-			"afIoc 1.5.4+", 
-			"afIocConfig 1.0.2+", 
-			"afBedSheet 1.3.2+",
-			"afEfanXtra 1.0.12+",
-			"afPillow 1.0.2+",
+			"afIoc 1.6.0+", 
+			"afIocConfig 1.0.4+", 
+			"afBedSheet 1.3.6+",
+			"afEfanXtra 1.0.14+",
+			"afPillow 1.0.4+",
 			
+			"afBounce 1.0.0+",
 			"afButter 0.0.4+",
-			"afBounce 0.0.6+"
+			"afSizzle 1.0.0+"
 		]
 
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
-		resDirs = [`doc/`]
+		resDirs = [`licence.txt`, `doc/`]
 
 		docApi = true
 		docSrc = true
@@ -42,10 +43,7 @@ class Build : BuildPod {
 
 	@Target { help = "Compile to pod file and associated natives" }
 	override Void compile() {
-		// exclude test code when building the pod
-		srcDirs = srcDirs.exclude { it.toStr.startsWith("test/") }
-		resDirs = resDirs.exclude { it.toStr.startsWith("test/") }
-		
+		// see "stripTest" in `/etc/build/config.props` to exclude test src & res dirs
 		super.compile
 		
 		// copy src to %FAN_HOME% for F4 debugging
