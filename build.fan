@@ -16,6 +16,7 @@ class Build : BuildPod {
 			"license.name"	: "The MIT Licence",
 			"repo.private"	: "true",
 
+			"tags"			: "web",
 			"afIoc.module"	: "afSitemap::SitemapModule"
 		]
 
@@ -50,7 +51,7 @@ class Build : BuildPod {
 		log.indent
 		destDir := Env.cur.homeDir.plus(`src/${podName}/`)
 		destDir.delete
-		destDir.create		
+		destDir.create
 		`fan/`.toFile.copyInto(destDir)		
 		log.info("Copied `fan/` to ${destDir.normalize}")
 		log.unindent
