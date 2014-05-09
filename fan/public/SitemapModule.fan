@@ -5,12 +5,13 @@ using afBedSheet
 ** The [Ioc]`http://www.fantomfactory.org/pods/afIoc` module class.
 ** 
 ** This class is public so it may be referenced explicitly in test code.
+@NoDoc
 class SitemapModule {
 	
 	internal static Void bind(ServiceBinder binder) {
-		binder.bind(SitemapPage#)
-		binder.bind(FromPillowPages#)
-		binder.bind(FromServices#)
+		binder.bind(SitemapPage#)		.withoutProxy
+		binder.bind(FromPillowPages#)	.withoutProxy
+		binder.bind(FromServices#)		.withoutProxy
 	}
 
 	@Contribute { serviceType=Routes# }
