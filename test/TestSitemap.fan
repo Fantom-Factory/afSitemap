@@ -66,24 +66,24 @@ internal const class T_PageService : SitemapSource {
 }
 
 @NoDoc
-@Page { uri=`/standardPillowPage`; template=`fan://afEfanXtra/res/viaRenderMethod.efan` }
+@Page { uri=`/standardPillowPage` }
 const mixin T_Page1 : EfanComponent {
-	Str render() { "wotever" }
+	override Str renderTemplate() { "wotever" }
 }
 
 @NoDoc
-@Page { template=`fan://afEfanXtra/res/viaRenderMethod.efan`}
+@Page
 const mixin T_Page2 : EfanComponent, SitemapSource {
 	override SitemapUrl[] sitemapUrls() {
 		[SitemapUrl(`http://pillowSource-1`), SitemapUrl(`http://pillowSource-2`)]
 	}
-	Str render() { "wotever" }
+	override Str renderTemplate() { "wotever" }
 }
 
 @NoDoc
-@Page { uri=`/pillowDirPage`; template=`fan://afEfanXtra/res/viaRenderMethod.efan` }
+@Page { uri=`/pillowDirPage` }
 const mixin T_Page3 : EfanComponent {
 	@InitRender
 	Void initRender(Str stuff) { }
-	Str render() { "wotever" }
+	override Str renderTemplate() { "wotever" }
 }

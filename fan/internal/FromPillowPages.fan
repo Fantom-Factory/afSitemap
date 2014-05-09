@@ -8,9 +8,9 @@ const mixin FromPillowPages : SitemapSource { }
 
 internal const class FromPillowPagesImpl : FromPillowPages {
 	
-	@Inject private const Pages 				pages
-	@Inject private const EfanTemplateFinders 	templateFinder
-	@Inject private const EfanXtra				efanXtra
+	@Inject private const Pages 			pages
+	@Inject private const TemplateFinders 	templateFinder
+	@Inject private const EfanXtra			efanXtra
 	
 	@Config { id="afBedSheet.host" }
 	@Inject private const Uri host
@@ -39,9 +39,9 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 			
 			// basic pillow page with no render args
 			clientUri	:= pageMeta.pageUri
-			template	:= templateFinder.findTemplate(pageType)
+			templateSrc	:= templateFinder.getOrFindTemplate(pageType)
 			sitemapUrls.add(SitemapUrl(host + clientUri) {
-				it.lastMod = template.modified
+				it.lastMod = templateSrc.LastModified
 				it.priority	= 0.5f
 				it.changefreq = SitemapFreq.monthly
 			})
