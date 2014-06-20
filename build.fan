@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "A library for creating XML sitemaps for your Bed App"
-		version = Version("0.0.12")
+		version = Version("0.0.13")
 
 		meta = [
 			"proj.name"		: "Sitemap",
 			"afIoc.module"	: "afSitemap::SitemapModule",
 			"internal"		: "true",
 			"tags"			: "web",
-			"repo.private"	: "false"
+			"repo.private"	: "true"
 		]
 
 		depends = [
@@ -36,5 +36,12 @@ class Build : BuildPod {
 
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
 		resDirs = [,]
+	}
+	
+	override Void compile() {
+		// remove test pods from final build
+		testPods := "afBounce afButter afSizzle".split
+		depends = depends.exclude { testPods.contains(it.split.first) }
+		super.compile
 	}
 }
