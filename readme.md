@@ -9,9 +9,11 @@
 Install `Sitemap` with the Fantom Repository Manager ( [fanr](http://fantom.org/doc/docFanr/Tool.html#install) ):
 
     C:\> fanr install -r http://repo.status302.com/fanr/ afSitemap
+
 To use in a [Fantom](http://fantom.org/) project, add a dependency to `build.fan`:
 
     depends = ["sys 1.0", ..., "afSitemap 0.0+"]
+
 ## Documentation 
 
 Full API & fandocs are available on the [Status302 repository](http://repo.status302.com/doc/afSitemap/#overview).
@@ -36,9 +38,11 @@ The [IoC](http://www.fantomfactory.org/pods/afIoc) service registry is scanned f
 
 You may also manually contribute [SitemapSource](http://repo.status302.com/doc/afSitemap/SitemapSource.html) objects to the [SitemapPage](http://repo.status302.com/doc/afSitemap/SitemapPage.html) service:
 
-    
-    @Contribute { serviceType=SitemapPage# }
-    internal static Void contributeSitemapPage(OrderedConfig config) {
-        url := SitemapUrl(`/wotever`) { ... }
-        config.add(SitemapSourceImpl(url))
-    }
+```
+@Contribute { serviceType=SitemapPage# }
+internal static Void contributeSitemapPage(OrderedConfig config) {
+    url := SitemapUrl(`/wotever`) { ... }
+    config.add(SitemapSourceImpl(url))
+}
+```
+
