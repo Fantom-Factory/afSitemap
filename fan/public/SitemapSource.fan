@@ -13,7 +13,7 @@ const mixin SitemapExempt : SitemapSource {
 	}
 }
 
-** A simple implementation of `SitemapSource` to be uses in service contributions.
+** A simple implementation of `SitemapSource` to be used in service contributions.
 const class SitemapSourceImpl : SitemapSource {
 	override const SitemapUrl[] sitemapUrls
 

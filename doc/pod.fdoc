@@ -1,8 +1,5 @@
 Overview [#overview]
 ********************
-*@{project.name} is a support library that aids Alien-Factory in the development of other libraries, frameworks and applications.
-Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
-
 'Sitemap' is a library that creates an [XML sitemap]`http://www.sitemaps.org/` for your [Bed App]`pod:afBedSheet`.
 
 
@@ -70,6 +67,10 @@ internal static Void contributeSitemapPage(OrderedConfig config) {
 
 Release Notes [#releaseNotes]
 *****************************
+v0.0.12 [#v0.0.12]
+------------------
+ - Chg: Updated to use [Ioc 1.6.4]`pods/afIoc` and [Pillow 1.0.10]`pod:afPillow`
+
 v0.0.10 [#v0.0.10]
 ------------------
  - Chg: Updated to use [efanXtra 1.1.0]`pods/afEfanXtra` and [Pillow 1.0.6]`pod:afPillow`

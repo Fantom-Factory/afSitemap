@@ -66,7 +66,7 @@ internal const class T_PageService : SitemapSource {
 }
 
 @NoDoc
-@Page { uri=`/standardPillowPage` }
+@Page { url=`/standardPillowPage` }
 const mixin T_Page1 : EfanComponent {
 	override Str renderTemplate() { "wotever" }
 }
@@ -81,7 +81,7 @@ const mixin T_Page2 : EfanComponent, SitemapSource {
 }
 
 @NoDoc
-@Page { uri=`/pillowDirPage` }
+@Page { url=`/pillowDirPage` }
 const mixin T_Page3 : EfanComponent {
 	@InitRender
 	Void initRender(Str stuff) { }

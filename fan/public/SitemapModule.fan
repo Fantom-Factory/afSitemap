@@ -9,9 +9,9 @@ using afBedSheet
 class SitemapModule {
 	
 	internal static Void bind(ServiceBinder binder) {
-		binder.bind(SitemapPage#)		.withoutProxy
-		binder.bind(FromPillowPages#)	.withoutProxy
-		binder.bind(FromServices#)		.withoutProxy
+		binder.bind(SitemapPage#)
+		binder.bind(FromPillowPages#)
+		binder.bind(FromServices#)
 	}
 
 	@Contribute { serviceType=Routes# }

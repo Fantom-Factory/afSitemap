@@ -41,7 +41,7 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 			clientUri	:= pageMeta.pageUri
 			templateSrc	:= templateFinder.getOrFindTemplate(pageType)
 			sitemapUrls.add(SitemapUrl(host + clientUri) {
-				it.lastMod = templateSrc.LastModified
+				it.lastMod = templateSrc.lastModified
 				it.priority	= 0.5f
 				it.changefreq = SitemapFreq.monthly
 			})
