@@ -53,7 +53,7 @@ internal class T_AppModule {
 @SubModule { modules=[SitemapModule#] }
 internal class T_AppModuleOverride {
 	@Contribute { serviceType=ApplicationDefaults# }
-	internal static Void contributeApplicationDefaults(MappedConfig config) {
+	internal static Void contributeApplicationDefaults(Configuration config) {
 		config[SitemapConfigIds.scanIocServices] = false
 		config[SitemapConfigIds.scanPillowPages] = false
 	}

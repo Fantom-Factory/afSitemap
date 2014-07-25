@@ -2,6 +2,7 @@ using afIoc
 using afIocConfig
 using afPillow
 using afEfanXtra
+using afBedSheet
 
 @NoDoc
 const mixin FromPillowPages : SitemapSource { }
@@ -11,10 +12,8 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 	@Inject private const Pages 			pages
 	@Inject private const TemplateFinders 	templateFinder
 	@Inject private const EfanXtra			efanXtra
+	@Inject private const BedSheetServer	bedServer
 	
-	@Config { id="afBedSheet.host" }
-	@Inject private const Uri host
-
 	@Config { id="afSitemap.scanPillowPages" }
 	@Inject private const Bool enabled
 
@@ -38,9 +37,9 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 				return
 			
 			// basic pillow page with no render args
-			clientUri	:= pageMeta.pageUri
+			localUrl	:= pageMeta.pageUrl
 			templateSrc	:= templateFinder.getOrFindTemplate(pageType)
-			sitemapUrls.add(SitemapUrl(host + clientUri) {
+			sitemapUrls.add(SitemapUrl(bedServer.toAbsoluteUrl(localUrl)) {
 				it.lastMod = templateSrc.lastModified
 				it.priority	= 0.5f
 				it.changefreq = SitemapFreq.monthly
