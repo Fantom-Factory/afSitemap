@@ -57,7 +57,7 @@ pre>
 syntax: fantom
 
 @Contribute { serviceType=SitemapPage# }
-internal static Void contributeSitemapPage(OrderedConfig config) {
+internal static Void contributeSitemapPage(Configuration config) {
     url := SitemapUrl(`/wotever`) { ... }
     config.add(SitemapSourceImpl(url))
 }
@@ -67,6 +67,10 @@ internal static Void contributeSitemapPage(OrderedConfig config) {
 
 Release Notes [#releaseNotes]
 *****************************
+v0.0.14 [#v0.0.14]
+------------------
+ - Chg: Updated to use [Ioc 1.7.2]`pods/afIoc` and [BedSheet 1.3.12]`pod:afBedSheet`
+
 v0.0.12 [#v0.0.12]
 ------------------
  - Chg: Updated to use [Ioc 1.6.4]`pods/afIoc` and [Pillow 1.0.10]`pod:afPillow`
