@@ -40,7 +40,7 @@ You may also manually contribute [SitemapSource](http://repo.status302.com/doc/a
 
 ```
 @Contribute { serviceType=SitemapPage# }
-internal static Void contributeSitemapPage(OrderedConfig config) {
+internal static Void contributeSitemapPage(Configuration config) {
     url := SitemapUrl(`/wotever`) { ... }
     config.add(SitemapSourceImpl(url))
 }
