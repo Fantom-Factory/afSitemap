@@ -45,8 +45,8 @@ class TestSitemap : Test {
 
 @SubModule { modules=[SitemapModule#] }
 internal class T_AppModule {
-	static Void bind(ServiceBinder binder) {
-		binder.bind(T_PageService#)
+	static Void defineServices(ServiceDefinitions defs) {
+		defs.add(T_PageService#)
 	}
 }
 

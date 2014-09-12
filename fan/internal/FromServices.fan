@@ -5,7 +5,6 @@ using afIocConfig
 const mixin FromServices : SitemapSource { }
 
 internal const class FromServicesImpl : FromServices {
-	@Inject private const ServiceStats	serviceStats
 	@Inject private const Registry		registry
 	
 	@Config { id="afSitemap.scanIocServices" }
@@ -18,9 +17,9 @@ internal const class FromServicesImpl : FromServices {
 		if (!enabled)
 			return sitemapUrls
 
-		serviceStats.stats.each |stat| {
-			if (stat.serviceType.fits(SitemapSource#) && !stat.serviceType.fits(FromPillowPages#) && !stat.serviceType.fits(FromServices#)) {
-				src := (SitemapSource) registry.serviceById(stat.serviceId)
+		registry.serviceDefinitions.each |def| {
+			if (def.serviceType.fits(SitemapSource#) && !def.serviceType.fits(FromPillowPages#) && !def.serviceType.fits(FromServices#)) {
+				src := (SitemapSource) registry.serviceById(def.serviceId)
 				sitemapUrls.addAll(src.sitemapUrls)
 			}
 		}

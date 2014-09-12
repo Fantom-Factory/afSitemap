@@ -8,10 +8,10 @@ using afBedSheet
 @NoDoc
 class SitemapModule {
 	
-	internal static Void bind(ServiceBinder binder) {
-		binder.bind(SitemapPage#)
-		binder.bind(FromPillowPages#)
-		binder.bind(FromServices#)
+	static Void defineServices(ServiceDefinitions defs) {
+		defs.add(SitemapPage#)
+		defs.add(FromPillowPages#)
+		defs.add(FromServices#)
 	}
 
 	@Contribute { serviceType=Routes# }
