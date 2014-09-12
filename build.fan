@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "A library for creating XML sitemaps for your Bed Application"
-		version = Version("0.0.15")
+		version = Version("0.0.16")
 
 		meta = [
 			"proj.name"		: "Sitemap",
 			"afIoc.module"	: "afSitemap::SitemapModule",
 			"internal"		: "true",
 			"tags"			: "web",
-			"repo.private"	: "true"
+			"repo.private"	: "false"
 		]
 
 		depends = [
@@ -20,16 +20,16 @@ class Build : BuildPod {
 			"xml 1.0",
 			
 			// ---- Core ------------------------
-			"afIoc 1.7.2+", 
-			"afIocConfig 1.0.10+",
+			"afIoc 2.0.0+", 
+			"afIocConfig 1.0.16+",
 			
 			// ---- Web -------------------------
-			"afBedSheet 1.3.12+",
-			"afEfanXtra 1.1.8+",
-			"afPillow 1.0.14+",
+			"afBedSheet 1.3.16+",
+			"afEfanXtra 1.1.14+",
+			"afPillow 1.0.20+",
 			
 			// ---- Test ------------------------
-			"afBounce 1.0.10+",
+			"afBounce 1.0.14+",
 			"afButter 1.0.2+",
 			"afSizzle 1.0.0+"
 		]
