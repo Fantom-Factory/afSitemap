@@ -12,7 +12,7 @@ Install `Sitemap` with the Fantom Repository Manager ( [fanr](http://fantom.org/
 
 To use in a [Fantom](http://fantom.org/) project, add a dependency to `build.fan`:
 
-    depends = ["sys 1.0", ..., "afSitemap 0.0+"]
+    depends = ["sys 1.0", ..., "afSitemap 1.0"]
 
 ## Documentation 
 
@@ -28,7 +28,7 @@ URLs from [Pillow](http://www.fantomfactory.org/pods/afPillow) pages are added a
 
 [Pillow](http://www.fantomfactory.org/pods/afPillow) pages are ignored if they contain an `@InitRender` method or `@PageContext` fields. Such pages take additional URL parameters of which, obviously, `Sitemap` can not determine valid values for. These pages should implement [SitemapSource](http://repo.status302.com/doc/afSitemap/SitemapSource.html) and return a list of valid [SitemapUrls](http://repo.status302.com/doc/afSitemap/SitemapUrl.html).
 
-If you don't wish for a [Pillow](http://www.fantomfactory.org/pods/afPillow) page to be included, let it implement [SitemapExempt](http://repo.status302.com/doc/afSitemap/SitemapExempt.html).
+If you don't wish for a [Pillow](http://www.fantomfactory.org/pods/afPillow) page to be scanned or included, let it implement [SitemapExempt](http://repo.status302.com/doc/afSitemap/SitemapExempt.html).
 
 ### IoC Services 
 

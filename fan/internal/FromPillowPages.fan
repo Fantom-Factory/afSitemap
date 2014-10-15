@@ -37,9 +37,9 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 				return
 			
 			// basic pillow page with no render args
-			localUrl	:= pageMeta.pageUrl
+			clientUrl	:= pageMeta.pageUrl
 			templateSrc	:= templateFinder.getOrFindTemplate(pageType)
-			sitemapUrls.add(SitemapUrl(bedServer.toAbsoluteUrl(localUrl)) {
+			sitemapUrls.add(SitemapUrl(bedServer.toAbsoluteUrl(clientUrl)) {
 				it.lastMod = templateSrc.lastModified
 				it.priority	= 0.5f
 				it.changefreq = SitemapFreq.monthly

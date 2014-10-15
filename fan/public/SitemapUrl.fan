@@ -29,7 +29,7 @@ const class SitemapUrl {
 		in?.call(this)
 		
 		if (!loc.isAbs || loc.host == null)
-			throw Err("Sitemap location `$loc` must have a scheme and a host, e.g. http://example.com")
+			throw Err("Sitemap location `$loc` must have a scheme and a host, e.g. http://example.com/")
 	}
 	
 	XElem toXml() {
