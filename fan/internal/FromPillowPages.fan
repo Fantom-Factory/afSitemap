@@ -32,7 +32,7 @@ internal const class FromPillowPagesImpl : FromPillowPages {
 			}
 			
 			pageMeta := pages.pageMeta(pageType, null)
-			if (!pageMeta.contextTypes.isEmpty)
+			if (!pageMeta.initRender.paramTypes.isEmpty)
 				// if the page takes args, we don't know what they should be
 				return
 			
