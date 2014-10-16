@@ -20,18 +20,18 @@ class Build : BuildPod {
 			"xml 1.0",
 			
 			// ---- Core ------------------------
-			"afIoc 2.0", 
-			"afIocConfig 1.0",
+			"afIoc       2.0.0  - 2.0", 
+			"afIocConfig 1.0.16 - 1.0",
 			
 			// ---- Web -------------------------
-			"afBedSheet 1.3",
-			"afEfanXtra 1.1",
-			"afPillow 1.0",
+			"afBedSheet 1.3.16 - 1.3",
+			"afEfanXtra 1.1.14 - 1.1",
+			"afPillow   1.0.20 - 1.0",
 			
 			// ---- Test ------------------------
-			"afBounce 1.0",
-			"afButter 1.0",
-			"afSizzle 1.0"
+			"afBounce 1.0.14 - 1.0",
+			"afButter 1.0.2  - 1.0",
+			"afSizzle 1.0.0  - 1.0"
 		]
 
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
