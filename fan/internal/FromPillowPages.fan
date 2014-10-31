@@ -1,28 +1,19 @@
 using afIoc
-using afIocConfig
 using afPillow
 using afEfanXtra
 using afBedSheet
 
-@NoDoc
-const mixin FromPillowPages : SitemapSource { }
-
-internal const class FromPillowPagesImpl : FromPillowPages {
+internal const class FromPillowPages : SitemapSource {
 	
 	@Inject private const Pages 			pages
 	@Inject private const TemplateFinders 	templateFinder
 	@Inject private const EfanXtra			efanXtra
 	@Inject private const BedSheetServer	bedServer
 	
-	@Config { id="afSitemap.scanPillowPages" }
-	@Inject private const Bool enabled
-
 	new make(|This|in) { in(this) }
 	
 	override SitemapUrl[] sitemapUrls() {
 		sitemapUrls := SitemapUrl[,]
-		if (!enabled)
-			return sitemapUrls
 
 		pages.pageTypes.each |pageType| {
 			if (pageType.fits(SitemapSource#)) {

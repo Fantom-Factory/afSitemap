@@ -1,21 +1,12 @@
 using afIoc
-using afIocConfig
 
-@NoDoc
-const mixin FromServices : SitemapSource { }
-
-internal const class FromServicesImpl : FromServices {
+internal const class FromServices : SitemapSource {
 	@Inject private const Registry		registry
 	
-	@Config { id="afSitemap.scanIocServices" }
-	@Inject private const Bool enabled
-
 	new make(|This|in) { in(this) }
 	
 	override SitemapUrl[] sitemapUrls() {
 		sitemapUrls := SitemapUrl[,]
-		if (!enabled)
-			return sitemapUrls
 
 		registry.serviceDefinitions.each |def| {
 			if (def.serviceType.fits(SitemapSource#) && !def.serviceType.fits(FromPillowPages#) && !def.serviceType.fits(FromServices#)) {

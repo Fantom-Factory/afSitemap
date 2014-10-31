@@ -1,7 +1,6 @@
 using afBounce
 using afBedSheet
 using afIoc
-using afIocConfig
 using afPillow
 using afEfanXtra
 using afButter
@@ -52,10 +51,10 @@ internal class T_AppModule {
 
 @SubModule { modules=[SitemapModule#] }
 internal class T_AppModuleOverride {
-	@Contribute { serviceType=ApplicationDefaults# }
-	internal static Void contributeApplicationDefaults(Configuration config) {
-		config[SitemapConfigIds.scanIocServices] = false
-		config[SitemapConfigIds.scanPillowPages] = false
+	@Contribute { serviceType=SitemapPage# }
+	internal static Void contributeSitemapPage(Configuration config) {
+		config.remove("afSitemap.fromPillowPages")
+		config.remove("afSitemap.fromServices")
 	}
 }
 
