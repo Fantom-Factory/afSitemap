@@ -1,5 +1,4 @@
 using afIoc::Inject
-using afIocConfig::Config
 using afBedSheet::Text
 using afEfanXtra
 using afPillow

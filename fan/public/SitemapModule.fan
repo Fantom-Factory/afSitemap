@@ -1,5 +1,4 @@
 using afIoc
-using afIocConfig
 using afBedSheet
 
 ** The [Ioc]`http://www.fantomfactory.org/pods/afIoc` module class.
@@ -10,8 +9,6 @@ class SitemapModule {
 	
 	static Void defineServices(ServiceDefinitions defs) {
 		defs.add(SitemapPage#)
-		defs.add(FromPillowPages#)
-		defs.add(FromServices#)
 	}
 
 	@Contribute { serviceType=Routes# }
@@ -20,14 +17,8 @@ class SitemapModule {
 	}
 
 	@Contribute { serviceType=SitemapPage# }
-	internal static Void contributeSitemapPage(Configuration config, FromPillowPages fromPillowPages, FromServices fromServices) {
-		config["afSitemap.fromPillowPages"]	= fromPillowPages
-		config["afSitemap.fromServices"] 	= fromServices
-	}
-	
-	@Contribute { serviceType=FactoryDefaults# }
-	internal static Void contributeFactoryDefaults(Configuration config) {
-		config[SitemapConfigIds.scanIocServices] = true
-		config[SitemapConfigIds.scanPillowPages] = true
+	internal static Void contributeSitemapPage(Configuration config) {
+		config["afSitemap.fromPillowPages"]	= config.autobuild(FromPillowPages#)
+		config["afSitemap.fromServices"] 	= config.autobuild(FromServices#)
 	}	
 }

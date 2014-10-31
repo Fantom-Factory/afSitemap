@@ -38,7 +38,14 @@ The page location is generated using [BedSheet's]`pod:afBedSheet` 'host' config 
 Such pages take additional URL parameters of which, obviously, 'Sitemap' can not determine valid values for.
 These pages should implement `SitemapSource` and return a list of valid [SitemapUrls]`SitemapUrl`.
 
-If you don't wish for a [Pillow]`pod:afPillow` page to be scanned or included, let it implement `SitemapExempt`.
+If you don't wish a [Pillow]`pod:afPillow` page to be scanned or included, let it implement `SitemapExempt`.
+
+Or you can disable all Pillow Pages by removing the 'SitemapPage' contribution: 
+
+  @Contribute { serviceType=SitemapPage# }
+  static Void contributeSitemapPage(Configuration config) {
+      config.remove("afSitemap.fromPillowPages")
+  }
 
 
 
@@ -46,6 +53,13 @@ IoC Services [#services]
 ========================
 The [IoC]`pod:afIoc` service registry is scanned for services that implement `SitemapSource`.
 Any service that does is called upon to generate [SitemapUrls]`SitemapUrl`.
+
+Disable all service scanning by removing the 'SitemapPage' contribution: 
+
+  @Contribute { serviceType=SitemapPage# }
+  static Void contributeSitemapPage(Configuration config) {
+      config.remove("afSitemap.fromServices")
+  }
 
 
 
@@ -69,7 +83,8 @@ Release Notes [#releaseNotes]
 *****************************
 v1.0.0 [#v1.0.0]
 ----------------
- - Chg: Updated to use [Ioc 2.0]`pods/afIoc` and [Pillow 1.0]`pod:afPillow`.
+ - Chg: Updated to use [Ioc 2.0.0]`pods/afIoc` and [Pillow 1.0.22]`pod:afPillow`.
+ - Chg: Removed ConfigIds - just remove the 'SitemapPage' contribution instead!
 
 v0.0.14 [#v0.0.14]
 ------------------

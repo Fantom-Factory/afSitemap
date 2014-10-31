@@ -28,11 +28,25 @@ URLs from [Pillow](http://www.fantomfactory.org/pods/afPillow) pages are added a
 
 [Pillow](http://www.fantomfactory.org/pods/afPillow) pages are ignored if they contain an `@InitRender` method or `@PageContext` fields. Such pages take additional URL parameters of which, obviously, `Sitemap` can not determine valid values for. These pages should implement [SitemapSource](http://repo.status302.com/doc/afSitemap/SitemapSource.html) and return a list of valid [SitemapUrls](http://repo.status302.com/doc/afSitemap/SitemapUrl.html).
 
-If you don't wish for a [Pillow](http://www.fantomfactory.org/pods/afPillow) page to be scanned or included, let it implement [SitemapExempt](http://repo.status302.com/doc/afSitemap/SitemapExempt.html).
+If you don't wish a [Pillow](http://www.fantomfactory.org/pods/afPillow) page to be scanned or included, let it implement [SitemapExempt](http://repo.status302.com/doc/afSitemap/SitemapExempt.html).
+
+Or you can disable all Pillow Pages by removing the `SitemapPage` contribution:
+
+    @Contribute { serviceType=SitemapPage# }
+    static Void contributeSitemapPage(Configuration config) {
+        config.remove("afSitemap.fromPillowPages")
+    }
 
 ### IoC Services 
 
 The [IoC](http://www.fantomfactory.org/pods/afIoc) service registry is scanned for services that implement [SitemapSource](http://repo.status302.com/doc/afSitemap/SitemapSource.html). Any service that does is called upon to generate [SitemapUrls](http://repo.status302.com/doc/afSitemap/SitemapUrl.html).
+
+Disable all service scanning by removing the `SitemapPage` contribution:
+
+    @Contribute { serviceType=SitemapPage# }
+    static Void contributeSitemapPage(Configuration config) {
+        config.remove("afSitemap.fromServices")
+    }
 
 ### IoC Contribution 
 
