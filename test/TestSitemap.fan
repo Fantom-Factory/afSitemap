@@ -3,7 +3,6 @@ using afBedSheet
 using afIoc
 using afPillow
 using afEfanXtra
-using afButter
 
 class TestSitemap : Test {
 	

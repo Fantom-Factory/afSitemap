@@ -29,7 +29,6 @@ class Build : BuildPod {
 			
 			// ---- Test ------------------------
 			"afBounce    1.0.18 - 1.0",
-			"afButter    1.0.4  - 1.0",
 			"afSizzle    1.0.2  - 1.0"
 		]
 
