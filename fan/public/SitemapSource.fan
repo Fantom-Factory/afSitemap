@@ -14,6 +14,14 @@ const mixin SitemapExempt : SitemapSource {
 }
 
 ** A simple implementation of `SitemapSource` to be used in service contributions.
+** 
+**   syntax: fantom
+** 
+**   @Contribute { serviceType=SitemapPage# }
+**   internal static Void contributeSitemapPage(Configuration config) {
+**      url := SitemapUrl(`/wotever`) { ... }
+**      config.add(SitemapSourceImpl(url))
+**   }
 const class SitemapSourceImpl : SitemapSource {
 	override const SitemapUrl[] sitemapUrls
 

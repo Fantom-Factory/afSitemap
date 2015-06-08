@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "A library for creating XML sitemaps for your Bed Application"
-		version = Version("1.0.1")
+		version = Version("1.0.0")
 
 		meta = [
 			"proj.name"		: "Sitemap",
 			"afIoc.module"	: "afSitemap::SitemapModule",
-			"internal"		: "true",
-			"tags"			: "web",
-			"repo.private"	: "true"
+			"repo.internal"	: "true",
+			"repo.tags"		: "web",
+			"repo.public"	: "true"
 		]
 
 		depends = [
@@ -33,7 +33,7 @@ class Build : BuildPod {
 		]
 
 		srcDirs = [`test/`, `fan/`, `fan/public/`, `fan/internal/`]
-		resDirs = [,]
+		resDirs = [`doc/`]
 	}
 	
 	override Void compile() {
