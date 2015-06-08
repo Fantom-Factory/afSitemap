@@ -1,0 +1,36 @@
+Versions
+********
+
+v1.0.0
+======
+ - Chg: Updated to use [Ioc 2.0.0]`pod:afIoc` and [Pillow 1.0.22]`pod:afPillow`.
+ - Chg: Removed ConfigIds - just remove the 'SitemapPage' contribution instead!
+
+v0.0.14
+=======
+ - Chg: Updated to use [Ioc 1.7.2]`pod:afIoc` and [BedSheet 1.3.12]`pod:afBedSheet`.
+
+v0.0.12
+=======
+ - Chg: Updated to use [Ioc 1.6.4]`pod:afIoc` and [Pillow 1.0.10]`pod:afPillow`.
+
+v0.0.10
+=======
+ - Chg: Updated to use [efanXtra 1.1.0]`pod:afEfanXtra` and [Pillow 1.0.6]`pod:afPillow`.
+
+v0.0.8
+======
+ - Chg: Updated to use [Ioc 1.6.0]`pod:afIoc` and [BedSheet 1.3.6]`pod:afBedSheet`.
+
+v0.0.6
+======
+ - New: Added 'SitemapExempt' mixin.
+
+v0.0.4
+======
+ - Chg: Updated to [Pillow 0.0.10]`pod:afPillow`.
+
+v0.0.2
+======
+ - New: Preview Release.
+

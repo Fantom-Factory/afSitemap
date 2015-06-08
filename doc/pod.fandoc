@@ -1,0 +1,63 @@
+Overview [#overview]
+********************
+'Sitemap' is a library that creates an [XML sitemap]`http://www.sitemaps.org/` for your [Bed App]`pod:afBedSheet`.
+
+
+
+Usage
+*****
+The `SitemapUrl` object contains the data needed to render an individual [URL]`http://www.sitemaps.org/protocol.html` object.
+These are gathered by 'Sitemap' in serveral ways:
+
+
+
+Pillow Pages
+============
+URLs from [Pillow]`pod:afPillow` pages are added automatically.
+The page location is generated using [BedSheet's]`pod:afBedSheet` 'host' config value - so ensure this has been set!
+
+[Pillow]`pod:afPillow` pages are ignored if they contain an '@InitRender' method or '@PageContext' fields.
+Such pages take additional URL parameters of which, obviously, 'Sitemap' can not determine valid values for.
+These pages should implement `SitemapSource` and return a list of valid [SitemapUrls]`SitemapUrl`.
+
+If you don't wish a [Pillow]`pod:afPillow` page to be scanned or included, let it implement `SitemapExempt`.
+
+Or you can disable all Pillow Pages by removing the 'SitemapPage' contribution:
+
+  syntax: fantom
+
+  @Contribute { serviceType=SitemapPage# }
+  static Void contributeSitemapPage(Configuration config) {
+      config.remove("afSitemap.fromPillowPages")
+  }
+
+
+
+IoC Services
+============
+The [IoC]`pod:afIoc` service registry is scanned for services that implement `SitemapSource`.
+Any service that does is called upon to generate [SitemapUrls]`SitemapUrl`.
+
+Disable all service scanning by removing the 'SitemapPage' contribution:
+
+  syntax: fantom
+
+  @Contribute { serviceType=SitemapPage# }
+  static Void contributeSitemapPage(Configuration config) {
+      config.remove("afSitemap.fromServices")
+  }
+
+
+
+IoC Contribution
+================
+You may also manually contribute `SitemapSource` objects to the `SitemapPage` service:
+
+  syntax: fantom
+
+  @Contribute { serviceType=SitemapPage# }
+  internal static Void contributeSitemapPage(Configuration config) {
+      url := SitemapUrl(`/wotever`) { ... }
+      config.add(SitemapSourceImpl(url))
+  }
+
