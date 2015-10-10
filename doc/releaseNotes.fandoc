@@ -1,6 +1,10 @@
 Versions
 ********
 
+v1.1.0
+======
+ - Chg: Updated to work with [Ioc v3]`pod:afIoc` and [BedSheet 1.5]`pod:afBedSheet`.
+
 v1.0.0
 ======
  - Chg: Updated to use [Ioc 2.0.0]`pod:afIoc` and [Pillow 1.0.22]`pod:afPillow`.

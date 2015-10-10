@@ -43,8 +43,8 @@ class TestSitemap : Test {
 
 @SubModule { modules=[SitemapModule#] }
 internal class T_AppModule {
-	static Void defineServices(ServiceDefinitions defs) {
-		defs.add(T_PageService#)
+	static Void defineServices(RegistryBuilder defs) {
+		defs.addService(T_PageService#)
 	}
 }
 
