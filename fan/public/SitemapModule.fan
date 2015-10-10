@@ -7,8 +7,8 @@ using afBedSheet
 @NoDoc
 class SitemapModule {
 	
-	static Void defineServices(ServiceDefinitions defs) {
-		defs.add(SitemapPage#)
+	static Void defineServices(RegistryBuilder defs) {
+		defs.addService(SitemapPage#)
 	}
 
 	@Contribute { serviceType=Routes# }
@@ -18,7 +18,7 @@ class SitemapModule {
 
 	@Contribute { serviceType=SitemapPage# }
 	internal static Void contributeSitemapPage(Configuration config) {
-		config["afSitemap.fromPillowPages"]	= config.autobuild(FromPillowPages#)
-		config["afSitemap.fromServices"] 	= config.autobuild(FromServices#)
+		config["afSitemap.fromPillowPages"]	= config.build(FromPillowPages#)
+		config["afSitemap.fromServices"] 	= config.build(FromServices#)
 	}	
 }
