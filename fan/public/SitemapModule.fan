@@ -5,7 +5,7 @@ using afBedSheet
 ** 
 ** This class is public so it may be referenced explicitly in test code.
 @NoDoc
-class SitemapModule {
+const class SitemapModule {
 	
 	static Void defineServices(RegistryBuilder defs) {
 		defs.addService(SitemapPage#)

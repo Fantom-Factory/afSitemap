@@ -15,6 +15,10 @@ class Build : BuildPod {
 			"repo.public"	: "false"
 		]
 
+		index = [
+			"afIoc.module"	: "afSitemap::SitemapModule" 
+		]
+
 		depends = [
 			"sys 1.0",
 			"xml 1.0",
@@ -23,7 +27,7 @@ class Build : BuildPod {
 			"afIoc       3.0.0 - 3.0", 
 			
 			// ---- Web -------------------------
-			"afBedSheet  1.4.0 - 1.5",
+			"afBedSheet  1.5.0 - 1.5",
 			"afEfanXtra  1.2.0 - 1.2",
 			"afPillow    1.1.0 - 1.1",
 			
