@@ -8,7 +8,7 @@ class TestSitemap : Test {
 	
 	Void testSitemapGenerates() {
 		// given
-		server := BedServer(T_AppModule#).startup
+		server := BedServer("afSitemap").addModule(T_AppModule#).startup
 		client := server.makeClient
 		
 		// when
@@ -28,7 +28,7 @@ class TestSitemap : Test {
 
 	Void testDisableScanning() {
 		// given
-		server := BedServer(T_AppModule#).addModule(T_AppModuleOverride#).startup
+		server := BedServer("afSitemap").addModule(T_AppModuleOverride#).startup
 		client := server.makeClient
 		
 		// when
@@ -42,14 +42,14 @@ class TestSitemap : Test {
 }
 
 @SubModule { modules=[SitemapModule#] }
-internal class T_AppModule {
+internal const class T_AppModule {
 	static Void defineServices(RegistryBuilder defs) {
 		defs.addService(T_PageService#)
 	}
 }
 
 @SubModule { modules=[SitemapModule#] }
-internal class T_AppModuleOverride {
+internal const class T_AppModuleOverride {
 	@Contribute { serviceType=SitemapPage# }
 	internal static Void contributeSitemapPage(Configuration config) {
 		config.remove("afSitemap.fromPillowPages")
