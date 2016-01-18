@@ -23,8 +23,13 @@ internal const class FromPillowPages : SitemapSource {
 			}
 			
 			pageMeta := pages.pageMeta(pageType, null)
+			
+			// if the page takes args, we don't know what they should be... or the page URL
 			if (!pageMeta.initRender.paramTypes.isEmpty)
-				// if the page takes args, we don't know what they should be
+				return
+			
+			// if routing is disabled then we don't know what the page URL is
+			if (pageMeta.routesDisabled)
 				return
 			
 			// basic pillow page with no render args
