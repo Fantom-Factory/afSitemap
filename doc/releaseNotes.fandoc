@@ -4,6 +4,7 @@ Versions
 v1.1.0
 ======
  - Chg: Updated to work with [Ioc v3]`pod:afIoc` and [BedSheet 1.5]`pod:afBedSheet`.
+ - Pillow pages with routing disabled are not added to the sitemap.
 
 v1.0.0
 ======

@@ -1,6 +1,6 @@
 Overview [#overview]
 ********************
-'Sitemap' is a library that creates an [XML sitemap]`http://www.sitemaps.org/` for your [Bed App]`pod:afBedSheet`.
+'Sitemap' is a library that creates [XML sitemaps]`http://www.sitemaps.org/` for your [Bed Apps]`pod:afBedSheet`.
 
 
 
@@ -27,7 +27,7 @@ Or you can disable all Pillow Pages by removing the 'SitemapPage' contribution:
   syntax: fantom
 
   @Contribute { serviceType=SitemapPage# }
-  static Void contributeSitemapPage(Configuration config) {
+  Void contributeSitemapPage(Configuration config) {
       config.remove("afSitemap.fromPillowPages")
   }
 
@@ -43,7 +43,7 @@ Disable all service scanning by removing the 'SitemapPage' contribution:
   syntax: fantom
 
   @Contribute { serviceType=SitemapPage# }
-  static Void contributeSitemapPage(Configuration config) {
+  Void contributeSitemapPage(Configuration config) {
       config.remove("afSitemap.fromServices")
   }
 
@@ -56,7 +56,7 @@ You may also manually contribute `SitemapSource` objects to the `SitemapPage` se
   syntax: fantom
 
   @Contribute { serviceType=SitemapPage# }
-  internal static Void contributeSitemapPage(Configuration config) {
+  Void contributeSitemapPage(Configuration config) {
       url := SitemapUrl(`/wotever`) { ... }
       config.add(SitemapSourceImpl(url))
   }
