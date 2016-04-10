@@ -5,14 +5,14 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "Creates XML sitemaps for BedSheet Applications"
-		version = Version("1.1.0")s
+		version = Version("1.1.1")
 
 		meta = [
 			"proj.name"		: "Sitemap",
 			"afIoc.module"	: "afSitemap::SitemapModule",
 			"repo.internal"	: "true",
 			"repo.tags"		: "web",
-			"repo.public"	: "true"
+			"repo.public"	: "false"
 		]
 
 		index = [

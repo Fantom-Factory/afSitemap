@@ -8,7 +8,7 @@
 
 *Sitemap is a support library that aids Alien-Factory in the development of other libraries, frameworks and applications. Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
 
-`Sitemap` is a library that creates an [XML sitemap](http://www.sitemaps.org/) for your [Bed App](http://pods.fantomfactory.org/pods/afBedSheet).
+`Sitemap` is a library that creates [XML sitemaps](http://www.sitemaps.org/) for your [Bed Apps](http://pods.fantomfactory.org/pods/afBedSheet).
 
 ## Install
 
@@ -39,7 +39,7 @@ If you don't wish a [Pillow](http://pods.fantomfactory.org/pods/afPillow) page t
 Or you can disable all Pillow Pages by removing the `SitemapPage` contribution:
 
     @Contribute { serviceType=SitemapPage# }
-    static Void contributeSitemapPage(Configuration config) {
+    Void contributeSitemapPage(Configuration config) {
         config.remove("afSitemap.fromPillowPages")
     }
 
@@ -50,7 +50,7 @@ The [IoC](http://pods.fantomfactory.org/pods/afIoc) service registry is scanned 
 Disable all service scanning by removing the `SitemapPage` contribution:
 
     @Contribute { serviceType=SitemapPage# }
-    static Void contributeSitemapPage(Configuration config) {
+    Void contributeSitemapPage(Configuration config) {
         config.remove("afSitemap.fromServices")
     }
 
@@ -59,7 +59,7 @@ Disable all service scanning by removing the `SitemapPage` contribution:
 You may also manually contribute [SitemapSource](http://pods.fantomfactory.org/pods/afSitemap/api/SitemapSource) objects to the [SitemapPage](http://pods.fantomfactory.org/pods/afSitemap/api/SitemapPage) service:
 
     @Contribute { serviceType=SitemapPage# }
-    internal static Void contributeSitemapPage(Configuration config) {
+    Void contributeSitemapPage(Configuration config) {
         url := SitemapUrl(`/wotever`) { ... }
         config.add(SitemapSourceImpl(url))
     }
