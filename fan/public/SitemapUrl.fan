@@ -1,4 +1,5 @@
-using xml
+using xml::XElem
+using xml::XText
 
 ** The main Sitemap URL entity.
 const class SitemapUrl {

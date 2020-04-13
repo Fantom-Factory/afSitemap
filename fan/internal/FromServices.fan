@@ -1,4 +1,5 @@
-using afIoc
+using afIoc::Inject
+using afIoc::Scope
 
 internal const class FromServices : SitemapSource {
 	@Inject private const Scope		scope

@@ -1,7 +1,8 @@
-using afIoc
-using afPillow
-using afEfanXtra
-using afBedSheet
+using afIoc::Inject
+using afBedSheet::BedSheetServer
+using afEfanXtra::EfanXtra
+using afEfanXtra::TemplateFinders
+using afPillow::Pages
 
 internal const class FromPillowPages : SitemapSource {
 	

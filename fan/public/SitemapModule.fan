@@ -1,5 +1,8 @@
-using afIoc
-using afBedSheet
+using afIoc::RegistryBuilder
+using afIoc::Contribute
+using afIoc::Configuration
+using afBedSheet::Route
+using afBedSheet::Routes
 
 ** The [IoC]`pod:afIoc` module class.
 ** 

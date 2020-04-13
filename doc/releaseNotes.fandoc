@@ -1,15 +1,29 @@
-Versions
-********
+v1.1
+****
+
+v1.1.2
+======
+ - Chg: Updated to work with [Pillow 1.2]`pod:afPillow` and [efanXtra 2.0]`pod:afEfanXtra`.
 
 v1.1.0
 ======
  - Chg: Updated to work with [Ioc v3]`pod:afIoc` and [BedSheet 1.5]`pod:afBedSheet`.
- - Pillow pages with routing disabled are not added to the sitemap.
+ - Chg: Pillow pages with routing disabled are not added to the sitemap.
+
+
+
+v1.0
+****
 
 v1.0.0
 ======
  - Chg: Updated to use [Ioc 2.0.0]`pod:afIoc` and [Pillow 1.0.22]`pod:afPillow`.
  - Chg: Removed ConfigIds - just remove the 'SitemapPage' contribution instead!
+
+
+
+v0.0
+****
 
 v0.0.14
 =======
