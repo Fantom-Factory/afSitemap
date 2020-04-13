@@ -5,7 +5,7 @@ class Build : BuildPod {
 	new make() {
 		podName = "afSitemap"
 		summary = "Creates XML sitemaps for BedSheet Applications"
-		version = Version("1.1.2")
+		version = Version("1.1.3")
 
 		meta = [
 			"pod.dis"		: "Sitemap",
