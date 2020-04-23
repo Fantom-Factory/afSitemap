@@ -12,7 +12,7 @@ class Build : BuildPod {
 			"afIoc.module"	: "afSitemap::SitemapModule",
 			"repo.internal"	: "true",
 			"repo.tags"		: "web",
-			"repo.public"	: "false"
+			"repo.public"	: "true"
 		]
 
 		index = [
